@@ -7,5 +7,5 @@ import os
 
 def index(request):
     print(os.environ['DEBUG_VALUE'])
-    print("Secret Key",os.environ.get('SECRET_KEY')
+    print("Secret Key",os.environ.get('SECRET_KEY'))
     return render(request, 'index.html')
