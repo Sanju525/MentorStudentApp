@@ -91,7 +91,7 @@ def register_student(request):
                 return HttpResponseRedirect(reverse('registerStudent'))
         else:
             form = StudentForm()
-            return render(request, 'MyMentor/studentreg.html', {'form': form, 'mentorname': request.session.get('mentorname')})
+            return render(request, 'myMentor/studentreg.html', {'form': form, 'mentorname': request.session.get('mentorname')})
     else:
         return HttpResponse("404 page not found.")
 
@@ -105,7 +105,7 @@ def enter_mid1(request):
             return HttpResponseRedirect(reverse('StudentMid1'))
         else:
             form = StudentMarkMid1Form()
-            return render(request, 'MyMentor/marksdetails.html', {'form': form, 'value': 1})
+            return render(request, 'myMentor/marksdetails.html', {'form': form, 'value': 1})
     else:
         return HttpResponse("404 Page not found.")
     
@@ -119,7 +119,7 @@ def enter_mid2(request):
             return HttpResponseRedirect(reverse('StudentMid2'))
         else:
             form = StudentMarkMid2Form()
-            return render(request, 'MyMentor/marksdetails.html', {'form': form, 'value': 2})
+            return render(request, 'myMentor/marksdetails.html', {'form': form, 'value': 2})
     else:
         return HttpResponse("404 page not found.")
     
@@ -133,7 +133,7 @@ def enter_sem1(request):
             return HttpResponseRedirect(reverse('StudentSem1'))
         else:
             form = StudentMarkSem1Form()
-            return render(request, 'MyMentor/marksdetails.html', {'form': form, 'value': 3})
+            return render(request, 'myMentor/marksdetails.html', {'form': form, 'value': 3})
     else:
         return HttpResponse("404 page not found.")
 
@@ -153,7 +153,7 @@ def notify_student(request):
             id = Mentor.objects.get(username=MentorUSer.id)
             notifications = NotifyStudents.objects.all().filter(mentorname=id).order_by('-datetime')
             print(notifications)
-            return render(request, 'MyMentor/notifystudents.html', {'notifications': notifications})
+            return render(request, 'myMentor/notifystudents.html', {'notifications': notifications})
     else:
         return HttpResponse("404 page not found.")
 
@@ -167,6 +167,6 @@ def student_monthly_attendance(request):
             return HttpResponseRedirect(reverse('Attendance'))
         else:
             form = StudentMonthlyAttendanceForm()
-            return render(request, 'MyMentor/marksdetails.html', {'form': form, 'value': 4})
+            return render(request, 'myMentor/marksdetails.html', {'form': form, 'value': 4})
     else:
         return HttpResponse("404 page not found.")
