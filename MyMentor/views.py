@@ -59,12 +59,12 @@ def mentor_home(request):
 
         # Get MentorName to get the students under Mentor
         mentor = Mentor.objects.filter(username=mentorid).values('mentorname')
-        print(mentor)
+#         print(mentor)
         mentorDict = mentor[0]
         mentorname = mentorDict['mentorname']
-        print(mentorname)
+#         print(mentorname)
         request.session['mentorname'] = mentorname
-        print(request.session.get('mentorname'))
+#         print(request.session.get('mentorname'))
         # Get Students by using mentorName
 
         students = Student.objects.filter(mentorname=mentorname)
@@ -152,7 +152,7 @@ def notify_student(request):
             MentorUSer = User.objects.get(username=request.session.get('presentuser'))
             id = Mentor.objects.get(username=MentorUSer.id)
             notifications = NotifyStudents.objects.all().filter(mentorname=id).order_by('-datetime')
-            print(notifications)
+#             print(notifications)
             return render(request, 'myMentor/notifystudents.html', {'notifications': notifications})
     else:
         return HttpResponse("404 page not found.")
