@@ -10,10 +10,10 @@ def student_home(request):
     # print(request.user)
     student = Student.objects.filter(studentid=request.user)
     mentor = student.values('mentorname')
-    print(mentor[0]['mentorname'])
+#     print(mentor[0]['mentorname'])
     id = Mentor.objects.get(mentorname=mentor[0]['mentorname'])
     notifications = NotifyStudents.objects.all().filter(mentorname=id.id).order_by('-datetime')
-    print(notifications.values())
+#     print(notifications.values())
     context = {
         'students': student.values(),
         'notifications': notifications.values()[:3],
@@ -25,9 +25,9 @@ def student_home(request):
 @login_required
 def student_mid1(request):
     id = Student.objects.get(studentid=request.user)
-    print(id)
+#     print(id)
     mid1 = StudentMarkMid1.objects.filter(studentid=id)
-    print(mid1)
+#     print(mid1)
     return render(request, 'myStudent/markstable.html', {'marks': mid1, 'value': 0})
 
 
