@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ SECRET_KEY = 'ndz$7%zu3bg9p+=$xx1j3bwy7k_t1fg5d=ty8^7#rp@eu++#rx'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-
+    'mentorstudentapp.herokuapp.com',
 ]
 
 
@@ -141,3 +142,8 @@ STATICFILES_DIR = [
 
 LOGIN_URL = 'HomePage'
 LOGIN_REDIRECT_URL = 'studentHome'
+
+
+# Djago_Heroku
+
+django_heroku.settings(locals())
