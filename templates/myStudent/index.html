@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    TKR Student-Login
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'signin.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container-fluid rounded shadow-lg p-4" style="width: 80%; height: auto">
+    <img class="mb-4 border-top" src="{% static 'images/tkr-logo.png' %}" alt="college-logo" width=100% height=auto>
+    <h2><center>Student Login</center></h2>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <div class="pt-3">
+        <small class="text-muted">
+            Go back?<a style="color: green" href="{%url 'HomePage' %}">&nbsp;Home</a>
+        </small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <hr>
+</div>
+
+{% endblock %}

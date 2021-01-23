@@ -1,0 +1,32 @@
+{% extends 'myMentor/mentorBase.html' %}
+{% load static %}
+{% block title %}
+    TKRCET_MarksDetails Mid1
+{% endblock %}
+{% block mentorcontent %}
+<center><h4>Your Student Details</h4></center>
+<table class="table table-bordered">
+                          <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Sem</th>
+                                <th scope="col">branch</th>
+                                <th scope="col">batch</th>
+                                <th scope="col">Regulation</th>
+                            </tr>
+                            <tbody>
+                                {% for student in students %}
+                                    <tr>
+                                        <td>{{ student.studentid }}</td>
+                                        <td>{{ student.name }}</td>
+                                        <td>{{ student.sem }}</td>
+                                        <td>{{ student.branch }}</td>
+                                        <td>{{ student.batch }}</td>
+                                        <td>{{ student.regulation }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                          </thead>
+                        </table>
+{% endblock %}

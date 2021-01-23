@@ -1,0 +1,37 @@
+{% extends 'myMentor/mentorBase.html' %}
+{% load static %}
+{% block title %}
+    TKRCET_Notify Stuednts
+{% endblock %}
+{% block mentorcontent %}
+<h4>Notify Students</h4>
+<br>
+<div class="card shadow-lg p-3 mb-5 bg-white rounded">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="notify" class="form-label">Message</label>
+            <input type="text" name="message" class="form-control" id="notify">
+          </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<h4>Previous Notifications</h4>
+    <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-2">
+        {% for notification in notifications %}
+            <div class="card mb-3 shadow-lg bg-white rounded" style="max-width: 18rem; margin-right: 0.8rem;">
+                <div class="card-header bg-transparent"><a href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle"       viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                      </svg></a>&nbsp;&nbsp;Date Notified
+                      &nbsp;&nbsp;{{ notification.datetime }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ notification.message }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

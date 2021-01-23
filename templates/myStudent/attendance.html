@@ -1,0 +1,25 @@
+{% extends 'myStudent/studentBase.html' %}
+{% load static %}
+{% block title %}
+    TKRCET_MarksDetails Mid1
+{% endblock %}
+{% block studentcontent %}
+<h4><strong>Attendance Details</strong></h4>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Date Updated</th>
+          <th scope="col">Percentage</th>
+        </tr>
+      </thead>
+        <tbody>
+        {% for attendance in attendance %}
+            <tr>
+              <td>{{ attendance.datetime }}</td>
+              <td>{{ attendance.percentage }}</td>
+            </tr>
+        {% endfor %}
+          </tbody>
+    </table>
+{% endblock %}

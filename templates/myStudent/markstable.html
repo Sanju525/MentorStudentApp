@@ -1,0 +1,70 @@
+{% extends 'myStudent/studentBase.html' %}
+{% load static %}
+{% block title %}
+    TKRCET_MarksDetails Mid1
+{% endblock %}
+{% block studentcontent %}
+    {% if value == 0 %}
+        <h4><strong>Mid-1 Marks Details</strong></h4>
+    {% elif value == 1 %}
+        <h4><strong>Mid-2 Marks Details</strong></h4>
+    {% else %}
+        <h4><strong>Sem Marks Details</strong></h4>
+    {% endif %}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Subject Name</th>
+          <th scope="col">Marks</th>
+        </tr>
+      </thead>
+        <tbody>
+            <tr>
+              <td>SUBJECT0</td>
+              <td>{{ marks.0.subject0 }}</td>
+            </tr>
+            <tr>
+              <td>SUBJECT1</td>
+              <td>{{ marks.0.subject1 }}</td>
+            </tr>
+            <tr>
+              <td>SUBJECT2</td>
+              <td>{{ marks.0.subject2 }}</td>
+            </tr>
+            <tr>
+              <td>SUBJECT3</td>
+              <td>{{ marks.0.subject3 }}</td>
+            </tr>
+            <tr>
+              <td>SUBJECT4</td>
+              <td>{{ marks.0.subject4 }}</td>
+            </tr>
+            <tr>
+              <td>SUBJECT5</td>
+              <td>{{ marks.0.subject5 }}</td>
+            </tr>
+            <tr>
+              <td>SUBJECT6</td>
+              <td>{{ marks.0.subject6 }}</td>
+            </tr>
+            <tr>
+              <td>LAB0</td>
+              <td>{{ marks.0.lab0 }}</td>
+            </tr>
+            <tr>
+              <td>LAB1</td>
+              <td>{{ marks.0.lab1 }}</td>
+            </tr>
+            {% if value == 2 %}
+            <tr>
+              <td> SGPA </td>
+              <td>{{ marks.0.sgpa }}</td>
+            </tr>
+            <tr>
+              <td> CGPA </td>
+              <td>{{ marks.0.cgpa }}</td>
+            </tr>
+            {% endif %}
+          </tbody>
+    </table>
+{% endblock %}
