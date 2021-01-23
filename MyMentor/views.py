@@ -59,6 +59,7 @@ def mentor_home(request):
 
         # Get MentorName to get the students under Mentor
         mentor = Mentor.objects.filter(username=mentorid).values('mentorname')
+        print(mentor)
         mentorDict = mentor[0]
         mentorname = mentorDict['mentorname']
         print(mentorname)
